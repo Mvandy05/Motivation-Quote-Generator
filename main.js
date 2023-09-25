@@ -68,14 +68,16 @@ const newQuote = () => {
     return console.log(`${part1} ${part2} ${part3} - ${firstName} ${middleInitial} ${lastName}`);
 }
 
+/*
 addQuote(`p1`, `p2`, null, `AFN1`, `ALN1`);
 addQuote(`p11`, null, null, `AFN2`, `ALN2`);
 addQuote(`p111`, `p222`, `p333`, `AFN3`, `ALN3`);
 newQuote();
+*/
 
 //randomQuote();
 
-/*
+
 addQuote(`Success is something you attract by the person you become.`,null, null,`Jim`, `Rohn`);
 addQuote(`Ordinary people believe only in the possible.`, `Extraordinary people visualize not what is possible or probably, but rather what is impossible.`, `And by visualizing the impossible, they begin to see it as possible.`, `Cherie`, `Carter-Scott`);
 addQuote(`Ideas can come from anywhere and at any time.`, `The problem with making mental notes is that the ink fades very rapidly.`, null, `Rolf`, `Smith`);
@@ -89,8 +91,8 @@ addQuote(`Good is the enemy of great...`, `Few people attain great lives, in lar
 addQuote(`Winning is not a sometime thing: it's an all-the-time thing.`, `You don't win once in a while; you don't do the right thing once in a while; you do them right all the time.`, `Winning is a habit. Unfortunately, so is losing.`, `Vince`, `Lombardi`);
 addQuote(`No horse gets anywhere until he is harnessed.`, `No steam or gas ever drives anything until it is confined. No Niagara is ever turned into light and power until it is tunneled.`, `No life ever grows great until it is focused, dedicated, disciplined.`, `Harry`, `Emerson Fosdick`);
 
-randomPart();
-*/
+newQuote();
+
 /*
 console.log(addQuote);
 console.log(quotesArr);
