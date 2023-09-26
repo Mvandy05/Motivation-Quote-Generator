@@ -65,8 +65,47 @@ const newQuote = () => {
     }
     const part3 = randQuote3.part3;
     const lastName = randQuote3.authorLastName;
-    return console.log(`${part1} ${part2} ${part3} - ${firstName} ${middleInitial} ${lastName}`);
-}
+    console.log(`${part1} ${part2} ${part3} - ${firstName} ${middleInitial} ${lastName}`);
+    const NewQuote = {
+        _part1: part1,
+        _part2: part2,
+        _part3: part3,
+        _firstName: firstName,
+        _middleInitial: middleInitial,
+        _lastName: lastName,
+        set modPart(partNumber) {
+            // Change the identified part of the NewQuote.
+            if (typeof partNumber === 'number' && partNumber >= 1 && partNumber <= 3) {
+                let randQuote = randomQuote();
+                switch(partNumber) {
+                    case 1:
+                        this._part1 = randQuote.part1;
+                        this._firstName = randQuote.authorFirstName;
+                        break;
+                    case 2:
+                        while (typeof randQuote.part2 != 'string') {
+                            randQuote = randomQuote();
+                        }
+                        this._part2 = randQuote.part2;
+                        this._middleInitial = `${randQuote.authorFirstName[0]}`;
+                        break;
+                    case 3:
+                        while (typeof randQuote.part3 != 'string') {
+                            randQuote = randomQuote();
+                        }
+                        this._part3 = randQuote.part3;
+                        this._lastName = randQuote.authorLastName;
+                        break;
+                    default:
+                        console.log(`ERROR: Parameter must be 1, 2, or 3.`);
+                };
+            } else {
+                console.log(`ERROR: Part Number must be 1, 2, or 3.`)
+            }
+        }
+    }
+    return NewQuote;
+};
 
 /*
 addQuote(`p1`, `p2`, null, `AFN1`, `ALN1`);
@@ -91,7 +130,10 @@ addQuote(`Good is the enemy of great...`, `Few people attain great lives, in lar
 addQuote(`Winning is not a sometime thing: it's an all-the-time thing.`, `You don't win once in a while; you don't do the right thing once in a while; you do them right all the time.`, `Winning is a habit. Unfortunately, so is losing.`, `Vince`, `Lombardi`);
 addQuote(`No horse gets anywhere until he is harnessed.`, `No steam or gas ever drives anything until it is confined. No Niagara is ever turned into light and power until it is tunneled.`, `No life ever grows great until it is focused, dedicated, disciplined.`, `Harry`, `Emerson Fosdick`);
 
-newQuote();
+let Q1 = newQuote();
+console.log(Q1);
+console.log(Q1.modPart = 3);
+console.log(Q1);
 
 /*
 console.log(addQuote);
