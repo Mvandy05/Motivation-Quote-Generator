@@ -57,6 +57,7 @@ const newQuote = () => {
         //console.log(`Part2 Iteration: ${randQuote2.part2}`);
     }
     const part2 = randQuote2.part2;
+    const middleName = randQuote2.authorFirstName;
     const middleInitial = `${randQuote2.authorFirstName[0]}.`
     //console.log(`middleInitial: ${middleInitial}`);
     let randQuote3 = randomQuote();
@@ -71,6 +72,7 @@ const newQuote = () => {
         _part2: part2,
         _part3: part3,
         _firstName: firstName,
+        _middleName: middleName,
         _middleInitial: middleInitial,
         _lastName: lastName,
         set modPart(partNumber) {
@@ -87,6 +89,7 @@ const newQuote = () => {
                             randQuote = randomQuote();
                         }
                         this._part2 = randQuote.part2;
+                        this._middleName = randQuote.authorFirstName;
                         this._middleInitial = `${randQuote.authorFirstName[0]}`;
                         break;
                     case 3:
@@ -102,6 +105,10 @@ const newQuote = () => {
             } else {
                 console.log(`ERROR: Part Number must be 1, 2, or 3.`)
             }
+        },
+        shuffleAuthor() {
+            [this._firstName, this._middleName] = [this._middleName, this._firstName];
+            this._middleInitial = `${this._middleName[0]}`;
         }
     }
     return NewQuote;
@@ -132,7 +139,7 @@ addQuote(`No horse gets anywhere until he is harnessed.`, `No steam or gas ever 
 
 let Q1 = newQuote();
 console.log(Q1);
-console.log(Q1.modPart = 3);
+Q1.shuffleAuthor();
 console.log(Q1);
 
 /*
